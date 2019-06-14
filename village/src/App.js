@@ -6,6 +6,7 @@ import styled from "styled-components";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
 import Navigation from "./components/Navigation";
+import SmurfCard from "./components/SmurfCards";
 
 const StyledApp = styled.div`
   display: flex;
@@ -99,6 +100,8 @@ class App extends Component {
           path="/"
           render={props => <Smurfs {...props} smurfs={smurfs} />}
         />
+
+        <SmurfCard smurfs={smurfs} />
       </StyledApp>
     );
   }

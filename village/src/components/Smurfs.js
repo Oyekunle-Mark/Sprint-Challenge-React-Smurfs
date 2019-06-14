@@ -1,5 +1,6 @@
 import React from "react";
 import Prop from "prop-types";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import Smurf from "./Smurf";
@@ -13,13 +14,14 @@ const Smurfs = ({ smurfs }) => (
   <StyledSmurfs>
     <ul>
       {smurfs.map(smurf => (
-        <Smurf
-          name={smurf.name}
-          id={smurf.id}
-          age={smurf.age}
-          height={smurf.height}
-          key={smurf.id}
-        />
+        <Link key={smurf.id} to={`/smurf/${smurf.id}`}>
+          <Smurf
+            name={smurf.name}
+            id={smurf.id}
+            age={smurf.age}
+            height={smurf.height}
+          />
+        </Link>
       ))}
     </ul>
   </StyledSmurfs>
