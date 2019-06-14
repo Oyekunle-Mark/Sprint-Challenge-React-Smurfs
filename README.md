@@ -105,16 +105,16 @@ Add a Router to this application by using React Router.
 
 **HTTP/Axios Stretch Problems**
 
-- [ ] The following two endpoints are here for you if you'd like to push yourselves a little further.
+- [X] The following two endpoints are here for you if you'd like to push yourselves a little further.
 
-- [ ] **HINT** if you are going to be working on Stretch Problem, you'll need to use that unique `id`.
+- [X] **HINT** if you are going to be working on Stretch Problem, you'll need to use that unique `id`.
 
 **DELETE '/smurfs/123', where 123 is the Id of the smurf you want to remove**
 
-- [ ] For this endpoint to work, all you need is an id sent up as part of the request url.
+- [X] For this endpoint to work, all you need is an id sent up as part of the request url.
 
-- [ ] If your delete worked, you'll get a list of the smurfs back.
-- [ ] Example:
+- [X] If your delete worked, you'll get a list of the smurfs back.
+- [X] Example:
 
 ```js
 // output: `A list of all the smurfs in the Smurf DB will be returned`

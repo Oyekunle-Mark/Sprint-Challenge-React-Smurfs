@@ -74,6 +74,14 @@ class App extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  deleteSmurf = id => {
+    axios.delete(`http://localhost:3333/smurfs/${id}`).then(response =>
+      this.setState({
+        smurfs: response.data
+      })
+    );
+  };
+
   render() {
     const { smurfs, name, age, height } = this.state;
 
@@ -101,7 +109,7 @@ class App extends Component {
           render={props => <Smurfs {...props} smurfs={smurfs} />}
         />
 
-        <SmurfCard smurfs={smurfs} />
+        <SmurfCard smurfs={smurfs} removeSmurf={this.deleteSmurf} />
       </StyledApp>
     );
   }
