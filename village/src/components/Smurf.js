@@ -7,10 +7,11 @@ const StyledSmurf = styled.section`
   color: #3a3a3a;
   text-align: center;
   max-width: 800px;
-  margin: 20px 0;
+  margin: auto;
   padding: 5px;
   border: 1px solid #002a32;
   border-radius: 3px;
+  margin-top: 30px;
 
   h3 {
     font-size: 20px;
