@@ -8,6 +8,7 @@ const StyledSmurf = styled.form`
   align-items: center;
   margin: auto;
   margin-top: 150px;
+  margin-bottom: 50px;
 
   background: rgb(247, 247, 247, 0.7);
   width: 340px;
@@ -53,25 +54,35 @@ export default function SmurfForm({
   age,
   height,
   handleChange,
-  handleSubmit
+  handleSubmit,
+  editing,
+  cancelForm
 }) {
   return (
     <StyledSmurf onSubmit={handleSubmit}>
-      <h3>Create A Smurf</h3>
+      <h3>{editing ? "Edit Smurf" : "Create A Smurf"}</h3>
+
       <input
         onChange={handleChange}
         placeholder="name"
         value={name}
         name="name"
       />
+
       <input onChange={handleChange} placeholder="age" value={age} name="age" />
+
       <input
         onChange={handleChange}
         placeholder="height"
         value={height}
         name="height"
       />
-      <button type="submit">Add to the village</button>
+
+      {editing && <button onClick={cancelForm}>Cancel</button>}
+
+      <button type="submit">
+        {editing ? "Edit Smurf" : "Add to the village"}
+      </button>
     </StyledSmurf>
   );
 }
@@ -81,5 +92,12 @@ SmurfForm.propTypes = {
   age: Prop.string.isRequired,
   height: Prop.string.isRequired,
   handleChange: Prop.func.isRequired,
-  handleSubmit: Prop.func.isRequired
+  handleSubmit: Prop.func.isRequired,
+  editing: Prop.string,
+  cancelForm: Prop.func
+};
+
+SmurfForm.defaultProps = {
+  editing: "",
+  cancelForm: f => f
 };

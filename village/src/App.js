@@ -33,7 +33,8 @@ class App extends Component {
       smurfs: [],
       name: "",
       age: "",
-      height: ""
+      height: "",
+      editing: ""
     };
   }
 
@@ -75,15 +76,52 @@ class App extends Component {
   };
 
   deleteSmurf = id => {
-    axios.delete(`http://localhost:3333/smurfs/${id}`).then(response =>
+    axios.delete(`http://localhost:3333/smurfs/${Number(id)}`).then(response =>
       this.setState({
         smurfs: response.data
       })
     );
   };
 
+  populateForm = (editing, name, age, height) => {
+    this.setState({
+      name,
+      age,
+      height,
+      editing
+    });
+  };
+
+  editSmurf = e => {
+    e.preventDefault();
+
+    const { name, age, height, editing } = this.state;
+    const newSmurf = {
+      name,
+      age: Number(age),
+      height
+    };
+
+    axios
+      .put(`http://localhost:3333/smurfs/${editing}`, newSmurf)
+      .then(response =>
+        this.setState({
+          smurfs: response.data,
+          editing: ""
+        })
+      );
+  };
+
+  cancelEditForm = () =>
+    this.setState({
+      editing: "",
+      name: "",
+      age: "",
+      height: ""
+    });
+
   render() {
-    const { smurfs, name, age, height } = this.state;
+    const { smurfs, name, age, height, editing } = this.state;
 
     return (
       <StyledApp>
@@ -106,10 +144,30 @@ class App extends Component {
         <Route
           exact
           path="/"
-          render={props => <Smurfs {...props} smurfs={smurfs} />}
+          render={props => (
+            <Smurfs
+              {...props}
+              smurfs={smurfs}
+              name={name}
+              age={age}
+              height={height}
+              handleChange={this.handleInputChange}
+            />
+          )}
         />
 
-        <SmurfCard smurfs={smurfs} removeSmurf={this.deleteSmurf} />
+        <SmurfCard
+          smurfs={smurfs}
+          removeSmurf={this.deleteSmurf}
+          name={name}
+          age={String(age)}
+          height={height}
+          editing={String(editing)}
+          handleChange={this.handleInputChange}
+          updateForm={this.populateForm}
+          handleSubmit={this.editSmurf}
+          cancelForm={this.cancelEditForm}
+        />
       </StyledApp>
     );
   }

@@ -3,10 +3,23 @@ import { Route } from "react-router-dom";
 import Prop from "prop-types";
 
 import Smurf from "./Smurf";
+import SmurfForm from "./SmurfForm";
 
-export default function SmurfCards({ smurfs, removeSmurf }) {
+export default function SmurfCards({
+  smurfs,
+  removeSmurf,
+  name,
+  age,
+  height,
+  editing,
+  updateForm,
+  handleChange,
+  handleSubmit,
+  cancelForm
+}) {
   const smurfCards = smurfs.map(smurf => (
     <Route
+      key={smurf.id}
       path={`/smurf/${smurf.id}`}
       render={props => (
         <div>
@@ -17,14 +30,37 @@ export default function SmurfCards({ smurfs, removeSmurf }) {
             age={smurf.age}
             height={smurf.height}
           />
-          <button
-            onClick={() => {
-              removeSmurf(smurf.id);
-              props.history.push("/");
-            }}
-          >
-            Remove Smurf
-          </button>
+
+          <div>
+            <button
+              onClick={() => {
+                removeSmurf(smurf.id);
+                props.history.push("/");
+              }}
+            >
+              Remove Smurf
+            </button>
+
+            <button
+              onClick={() =>
+                updateForm(smurf.id, smurf.name, smurf.age, smurf.height)
+              }
+            >
+              Edit Smurf
+            </button>
+          </div>
+
+          {editing && (
+            <SmurfForm
+              name={name}
+              age={age}
+              height={height}
+              handleChange={handleChange}
+              handleSubmit={handleSubmit}
+              editing={editing}
+              cancelForm={cancelForm}
+            />
+          )}
         </div>
       )}
     />
@@ -36,5 +72,17 @@ export default function SmurfCards({ smurfs, removeSmurf }) {
 SmurfCards.propTypes = {
   smurfs: Prop.arrayOf(Prop.object).isRequired,
   removeSmurf: Prop.func.isRequired,
-  history: Prop.func.isRequired
+  name: Prop.string.isRequired,
+  age: Prop.string.isRequired,
+  height: Prop.string.isRequired,
+  editing: Prop.string.isRequired,
+  history: Prop.func,
+  updateForm: Prop.func.isRequired,
+  handleSubmit: Prop.func.isRequired,
+  handleChange: Prop.func.isRequired,
+  cancelForm: Prop.func.isRequired
+};
+
+SmurfCards.defaultProps = {
+  history: f => f
 };
