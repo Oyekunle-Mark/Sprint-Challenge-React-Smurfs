@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import axios from "axios";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
@@ -15,7 +15,7 @@ const StyledApp = styled.div`
   min-width: 100vw;
   background: #42b0ed;
   color: #ffffff;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 16px;
 
   a {
@@ -94,7 +94,11 @@ class App extends Component {
           )}
         />
 
-        <Route exact path="/" render={props => <Smurfs {...props} smurfs={smurfs} />} />
+        <Route
+          exact
+          path="/"
+          render={props => <Smurfs {...props} smurfs={smurfs} />}
+        />
       </StyledApp>
     );
   }

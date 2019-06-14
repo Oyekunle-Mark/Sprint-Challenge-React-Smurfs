@@ -6,6 +6,8 @@ const StyledSmurf = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: auto;
+  margin-top: 150px;
 
   background: rgb(247, 247, 247, 0.7);
   width: 340px;
@@ -31,13 +33,18 @@ const StyledSmurf = styled.form`
 
   button {
     width: 200px;
-    height: 28px;
+    height: 35px;
     padding: 5px;
     margin: 5px 0;
+    font-size: 14px;
     background: #002a32;
     color: #ffffff;
     border: 1px solid #002a32;
     border-radius: 2px;
+  }
+
+  button:hover {
+    cursor: pointer;
   }
 `;
 
