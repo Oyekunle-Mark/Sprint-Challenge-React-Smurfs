@@ -16,6 +16,7 @@ const StyledApp = styled.div`
   background: #42b0ed;
   color: #ffffff;
   font-family: 'Nunito', sans-serif;
+  font-size: 16px;
 
   a {
     color: inherit;

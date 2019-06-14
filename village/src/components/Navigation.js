@@ -16,6 +16,7 @@ const StyledNav = styled.nav`
   }
 
   div a {
+    font-size: 13px;
     font-weight: 100;
     margin-left: 20px;
   }

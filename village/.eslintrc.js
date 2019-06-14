@@ -24,6 +24,7 @@ module.exports = {
     "function-paren-newline": 0,
     "react/jsx-filename-extension": 0,
     "object-curly-newline": 0,
-    "implicit-arrow-linebreak": 0
+    "implicit-arrow-linebreak": 0,
+    "react/jsx-one-expression-per-line": 0
   }
 };
