@@ -1,10 +1,27 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import axios from "axios";
+import styled from 'styled-components';
 
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
 import Navigation from "./components/Navigation";
+
+const StyledApp = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100vh;
+  min-width: 100vw;
+  background: #42b0ed;
+  color: #ffffff;
+  font-family: 'Nunito', sans-serif;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+`;
 
 class App extends Component {
   constructor(props) {
@@ -59,7 +76,7 @@ class App extends Component {
     const { smurfs, name, age, height } = this.state;
 
     return (
-      <div className="App">
+      <StyledApp>
         <Navigation />
 
         <Route
@@ -77,7 +94,7 @@ class App extends Component {
         />
 
         <Route exact path="/" render={props => <Smurfs {...props} smurfs={smurfs} />} />
-      </div>
+      </StyledApp>
     );
   }
 }
