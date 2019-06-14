@@ -1,9 +1,35 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import Prop from "prop-types";
+import styled from "styled-components";
 
 import Smurf from "./Smurf";
 import SmurfForm from "./SmurfForm";
+
+const StyledCards = styled.div`
+  div {
+    display: flex;
+    justify-content: center;
+
+    margin: 20px 0;
+  }
+
+  div button {
+    width: 100px;
+    height: 35px;
+    padding: 5px;
+    margin: 5px 20px;
+    font-size: 14px;
+    background: #002a32;
+    color: #ffffff;
+    border: 1px solid #002a32;
+    border-radius: 2px;
+  }
+
+  div button:hover {
+    cursor: pointer;
+  }
+`;
 
 export default function SmurfCards({
   smurfs,
@@ -22,7 +48,7 @@ export default function SmurfCards({
       key={smurf.id}
       path={`/smurf/${smurf.id}`}
       render={props => (
-        <div>
+        <StyledCards>
           <Smurf
             {...props}
             name={smurf.name}
@@ -38,7 +64,7 @@ export default function SmurfCards({
                 props.history.push("/");
               }}
             >
-              Remove Smurf
+              Remove
             </button>
 
             <button
@@ -46,7 +72,7 @@ export default function SmurfCards({
                 updateForm(smurf.id, smurf.name, smurf.age, smurf.height)
               }
             >
-              Edit Smurf
+              Edit
             </button>
           </div>
 
@@ -61,7 +87,7 @@ export default function SmurfCards({
               cancelForm={cancelForm}
             />
           )}
-        </div>
+        </StyledCards>
       )}
     />
   ));

@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const StyledNav = styled.nav`
   display: flex;
@@ -11,7 +11,7 @@ const StyledNav = styled.nav`
   padding: 15px;
 
   h1 {
-    font-family: 'B612 Mono', monospace;
+    font-family: "B612 Mono", monospace;
     font-size: 23px;
   }
 
