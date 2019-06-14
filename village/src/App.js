@@ -52,6 +52,8 @@ class App extends Component {
     event.preventDefault();
 
     const { name, age, height } = this.state;
+    if (!name || !age || !height) return;
+
     const newSmurf = {
       name,
       age: Number(age),
@@ -133,7 +135,7 @@ class App extends Component {
             <SmurfForm
               {...props}
               name={name}
-              age={age}
+              age={Number(age)}
               height={height}
               handleChange={this.handleInputChange}
               handleSubmit={this.addSmurf}
@@ -160,7 +162,7 @@ class App extends Component {
           smurfs={smurfs}
           removeSmurf={this.deleteSmurf}
           name={name}
-          age={String(age)}
+          age={Number(age)}
           height={height}
           editing={String(editing)}
           handleChange={this.handleInputChange}
