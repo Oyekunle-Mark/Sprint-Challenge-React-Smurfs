@@ -69,7 +69,7 @@ export default function SmurfForm({
         name="name"
       />
 
-      <input type="number" onChange={handleChange} placeholder="age" value={age} name="age" />
+      <input type="text" onChange={handleChange} placeholder="age" value={age} name="age" />
 
       <input
         onChange={handleChange}
@@ -89,7 +89,7 @@ export default function SmurfForm({
 
 SmurfForm.propTypes = {
   name: Prop.string.isRequired,
-  age: Prop.number.isRequired,
+  age: Prop.string.isRequired,
   height: Prop.string.isRequired,
   handleChange: Prop.func.isRequired,
   handleSubmit: Prop.func.isRequired,

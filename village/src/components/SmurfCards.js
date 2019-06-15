@@ -99,7 +99,7 @@ SmurfCards.propTypes = {
   smurfs: Prop.arrayOf(Prop.object).isRequired,
   removeSmurf: Prop.func.isRequired,
   name: Prop.string.isRequired,
-  age: Prop.number.isRequired,
+  age: Prop.string.isRequired,
   height: Prop.string.isRequired,
   editing: Prop.string.isRequired,
   history: Prop.func,

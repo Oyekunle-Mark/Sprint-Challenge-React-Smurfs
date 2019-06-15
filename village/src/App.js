@@ -88,7 +88,7 @@ class App extends Component {
   populateForm = (editing, name, age, height) => {
     this.setState({
       name,
-      age,
+      age: String(age),
       height,
       editing
     });
@@ -135,7 +135,7 @@ class App extends Component {
             <SmurfForm
               {...props}
               name={name}
-              age={Number(age)}
+              age={age}
               height={height}
               handleChange={this.handleInputChange}
               handleSubmit={this.addSmurf}
@@ -162,7 +162,7 @@ class App extends Component {
           smurfs={smurfs}
           removeSmurf={this.deleteSmurf}
           name={name}
-          age={Number(age)}
+          age={age}
           height={height}
           editing={String(editing)}
           handleChange={this.handleInputChange}
