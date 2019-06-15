@@ -20,6 +20,11 @@ const StyledNav = styled.nav`
     font-weight: 100;
     margin-left: 20px;
   }
+
+  .selected {
+    color: red;
+    font-weight: 600;
+  }
 `;
 
 export default function Navigation() {
@@ -28,7 +33,7 @@ export default function Navigation() {
       <h1>Smurf Village</h1>
 
       <div>
-        <NavLink to="/" activeClassName="selected">
+        <NavLink exact to="/" activeClassName="selected">
           Smurfs
         </NavLink>
         <NavLink to="/smurf-form" activeClassName="selected">
